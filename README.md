@@ -1,7 +1,10 @@
 # k3sをインストールする方法 (1M+2W)
-このマニュアルではk8sの軽量版であるk3sを簡単にインストールします。  
+このマニュアルではk8sの軽量版であるk3sを簡単にインストール、クラスタを構築します。  
 参考にさせていただきましたありがとうございます。[Raspberry Piでk3sクラスタを建ててみた](https://qiita.com/to-fmak/items/696eb97a454111435337)  
 k8sについてよくわかる動画[挫折したエンジニア向け-Kubernetesの仕組みをちゃんと理解する](https://www.youtube.com/watch?v=r0NpHb-6IvY)
+
+OSはUbuntuServer24.04です。
+他のOSでもほとんど変わらないと思います。
 
 ## 1.WireGurdをインストールする
 ### 1.aptでインストール
@@ -172,3 +175,10 @@ kubectl get secret --namespace cattle-system bootstrap-secret -o go-template='{{
 初期のユーザー名は`admin`
 あとはブラウザで
 `https://rancher.local`にアクセスし、サイトの指示に従っていけばOK
+
+## 制作
+**sskrc**
+
+---
+
+今後の改良に関する提案やバグ報告は、お気軽にIssueを通してご連絡ください。
