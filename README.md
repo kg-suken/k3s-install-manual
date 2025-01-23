@@ -35,26 +35,26 @@ AllowedIPs = 10.0.0.3
 **Worker1**
 ```
 [Interface]
-Address = 172.16.0.2
+Address = 10.0.0.2
 ListenPort = 51871
 PrivateKey = <Worker1で作成した秘密鍵>
 
 [Peer]
 PublicKey = <Masterで作成した公開鍵>
 Endpoint = <MasterのIP>:51871
-AllowedIPs = 172.16.0.1
+AllowedIPs = 10.0.0.1
 ```
 **Worker2**
 ```
 [Interface]
-Address = 172.16.0.3
+Address = 10.0.0.3
 ListenPort = 51871
 PrivateKey = <Worker2で作成した秘密鍵>
 
 [Peer]
 PublicKey = <Masterで作成した公開鍵>
 Endpoint = <MasterのIP>:51871
-AllowedIPs = 172.16.0.1
+AllowedIPs = 10.0.0.1
 ```
 ### 4.WireGurdの起動+自動起動設定
 ```bash
