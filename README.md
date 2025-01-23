@@ -16,6 +16,7 @@ apt install wireguard -y
 wg genkey | tee wg.key | wg pubkey > wg-pub.key
 ```
 ### 3.設定ファイルの作成
+`/etc/wireguard/wg0.conf
 **Master**
 ```
 [Interface]
