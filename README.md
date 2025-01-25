@@ -120,10 +120,10 @@ Masterの`/etc/rancher/k3s/k3s.yaml`をWorkerの`~/.kube/config`にコピーし�
 MasterNodeも同じようにやってください
 この時に`server: https://10.0.0.1:6443`のようにMasterのIP(VPN越し)に設定する
 ```bash
-systemctl restart k3s-agent #WorkerNode
+systemctl restart k3s #MasterNode
 ```
 ```bash
-systemctl restart k3s #MasterNode
+systemctl restart k3s-agent #WorkerNode
 ```
 ノードの一覧を取得
 ```
@@ -175,7 +175,26 @@ kubectl get secret --namespace cattle-system bootstrap-secret -o go-template='{{
 初期のユーザー名は`admin`
 あとはブラウザで
 `https://rancher.local`にアクセスし、サイトの指示に従っていけばOK
-
+## <おまけ>アンインストール
+### k3sのアンインストール
+```bash
+sudo /usr/local/bin/k3s-uninstall.sh #Master
+```
+```bash
+sudo /usr/local/bin/k3s-agent-uninstall.sh #Worker
+```
+### ファイルの削除(kube)
+```bash
+rm -r ~/.kube/
+```
+### wireguardのアンインストール
+```bash
+sudo apt remove wireguard
+```
+### ファイルの削除(wireguard)
+```bash
+sudo rm /etc/wireguard/wg0.conf
+```
 ## 制作
 **sskrc**
 
