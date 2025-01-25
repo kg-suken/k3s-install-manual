@@ -155,7 +155,6 @@ kubectl create namespace cattle-system
 ```
 ### 5.デプロイする
 ```
-kubectl create namespace cattle-system
 helm install rancher rancher-stable/rancher \
   --namespace cattle-system \
   --set hostname=rancher.local
