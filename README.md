@@ -170,7 +170,7 @@ kubectl create namespace cattle-system
 kubectl create namespace cattle-system
 helm install rancher rancher-stable/rancher \
   --namespace cattle-system \
-  --set hostname=<RANCHER_HOSTNAME>
+  --set hostname=rancher.local
 ```
 ### 6.RancherのWebUIにアクセス
 アクセスしたいPCの`/etc/hosts`を編集する
