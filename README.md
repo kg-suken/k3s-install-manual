@@ -95,42 +95,13 @@ reboot now
 `22,6443/tcp,7946/tcp,10250/tcp,51820/udp,51871/udp`のポートが開いていることを確認
 ### 1.インストール
 ```bash
-curl -sfL https://get.k3s.io | sh -s - --disable traefik,local-storage,servicelb --node-name master --tls-san <MasterのIP>　--tls-san 10.0.0.1 --tls-san 127.0.0.1
+curl -sfL https://get.k3s.io | sh -s - --node-name master --tls-san <MasterのIP> --tls-san 10.0.0.1 --tls-san 127.0.0.1 --flannel-backend wireguard-native --flannel-external-ip --flannel-iface wg0
 ```
 ### 2.トークンの確認
 ```bash
 cat /var/lib/rancher/k3s/server/node-token
 ```
 トークンはあとで使います
-### 3.systemdサービスの編集
-`/etc/systemd/system/k3s.service`のExecStartのpath(/user/loval/bin/k3s)が既存のものと一致していることを確認し
-```
-ExecStart=/usr/local/bin/k3s \
-    server \
-        '--disable' \
-        'traefik,local-storage,servicelb' \
-        '--node-name' \
-        'master' \
-        '--tls-san' \
-        '<MasterのIP>' \
-        '--tls-san' \
-        '10.0.0.1' \
-        '--tls-san' \
-        '127.0.0.1' \
-        '--flannel-backend' \
-        'wireguard-native' \
-        '--flannel-external-ip' \
-        '--flannel-iface' \
-        'wg0' \
-```
-に変える
-再起動する
-```bash
-systemctl daemon-reload
-```
-```bash
-systemctl restart k3s
-```
 ## 2.Worker側の作業
 `22,6443/tcp,7946/tcp,10250/tcp,51820/udp,51871/udp`のポートが開いていることを確認
 ### 1.参加する
