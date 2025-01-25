@@ -15,7 +15,7 @@ sudo su
 ```
 ### 2.apt-update
 ```bash
-apt update update && apt upgrade -y
+apt update && apt upgrade -y
 ```
 
 ## 1.WireGurdをインストールする
