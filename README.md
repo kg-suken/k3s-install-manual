@@ -110,7 +110,7 @@ ExecStart=/usr/local/bin/k3s \
         '--disable' \
         'traefik,local-storage,servicelb' \
         '--node-name' \
-        'server' \
+        'master' \
         '--tls-san' \
         '<MasterのIP>' \
         '--tls-san' \
