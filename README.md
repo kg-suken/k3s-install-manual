@@ -8,6 +8,16 @@ k8sについてよくわかる動画[挫折したエンジニア向け-Kubernete
 OSはUbuntuServer24.04です。
 他のOSでもほとんど変わらないと思います。
 
+## 0.前準備
+### 1.rootユーザーになる
+```bash
+sudo su
+```
+### 2.apt-update
+```bash
+apt update update && apt upgrade -y
+```
+
 ## 1.WireGurdをインストールする
 ### 1.aptでインストール
 ```bash
