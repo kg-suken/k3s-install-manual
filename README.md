@@ -132,9 +132,11 @@ Masterの`/etc/rancher/k3s/k3s.yaml`をWorkerの`~/.kube/config`にコピーし�
 MasterNodeも同じようにやってください
 この時に`server: https://10.0.0.1:6443`のようにMasterのIP(VPN越し)に設定する
 ```bash
-systemctl restart k3s-agent
+systemctl restart k3s-agent #WorkerNode
 ```
-
+```bash
+systemctl restart k3s #MasterNode
+```
 ノードの一覧を取得
 ```
 kubectl get nodes
