@@ -78,7 +78,7 @@ systemctl start wg-quick@wg0
 
 ### 5.grubの設定(WireGurdではないけど)
 メモリサブシステムの有効化
-/etc/default/grubのGRUB_CMDLINE_LINUX_DEFAULTに`cgroup_enable=memory`を追記
+`/etc/default/grub`のGRUB_CMDLINE_LINUX_DEFAULTに`cgroup_enable=memory`を追記
 すべてのノードでおこなう。    
 ```
 update-grub
