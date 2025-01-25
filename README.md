@@ -83,8 +83,15 @@ systemctl start wg-quick@wg0
 ```
 update-grub
 ```    
-grubをアップデート    
+grubをアップデート  
+
+```
+reboot now
+```    
+再起動
+    
 ## 2.Master側の作業
+こちらもrootで実行してください。
 `22,6443/tcp,7946/tcp,10250/tcp,51820/udp,51871/udp`のポートが開いていることを確認
 ### 1.インストール
 ```bash
