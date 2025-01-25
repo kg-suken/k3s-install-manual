@@ -95,7 +95,7 @@ reboot now
 `22,6443/tcp,7946/tcp,10250/tcp,51820/udp,51871/udp`のポートが開いていることを確認
 ### 1.インストール
 ```bash
-curl -sfL https://get.k3s.io | sh -s - --disable traefik,local-storage,servicelb --node-name master --tls-san 10.0.0.1 --tls-san <MasterのIP> --tls-san 127.0.0.1
+curl -sfL https://get.k3s.io | sh -s - --disable traefik,local-storage,servicelb --node-name master --tls-san <MasterのIP>　--tls-san 10.0.0.1 --tls-san 127.0.0.1
 ```
 ### 2.トークンの確認
 ```bash
