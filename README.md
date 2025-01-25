@@ -1,6 +1,8 @@
 # k3sをインストールする方法 (1M+2W)
 このマニュアルではk8sの軽量版であるk3sを簡単にインストール、クラスタを構築します。  
-参考にさせていただきましたありがとうございます。[Raspberry Piでk3sクラスタを建ててみた](https://qiita.com/to-fmak/items/696eb97a454111435337)  
+参考にさせていただきましたありがとうございます。    
+[Raspberry Piでk3sクラスタを建ててみた](https://qiita.com/to-fmak/items/696eb97a454111435337)  
+[RK3sでクラスターを作ってみよう](https://qiita.com/ogawa_pro/items/55a9dadad90d595a85a5)
 k8sについてよくわかる動画[挫折したエンジニア向け-Kubernetesの仕組みをちゃんと理解する](https://www.youtube.com/watch?v=r0NpHb-6IvY)
 
 OSはUbuntuServer24.04です。
@@ -67,7 +69,11 @@ systemctl start wg-quick@wg0
 ### 5.grubの設定(WireGurdではないけど)
 メモリサブシステムの有効化
 /etc/default/grubのGRUB_CMDLINE_LINUX_DEFAULTに`cgroup_enable=memory`を追記
-すべてのノードでおこなう。
+すべてのノードでおこなう。    
+```
+update-grub
+```    
+grubをアップデート    
 ## 2.Master側の作業
 `22,6443/tcp,7946/tcp,10250/tcp,51820/udp,51871/udp`のポートが開いていることを確認
 ### 1.インストール
@@ -80,7 +86,7 @@ cat /var/lib/rancher/k3s/server/node-token
 ```
 トークンはあとで使います
 ### 3.systemdサービスの編集
-ExecStartのpath(/user/loval/bin/k3s)が既存のものと一致していることを確認し
+`/etc/systemd/system/k3s.service`のExecStartのpath(/user/loval/bin/k3s)が既存のものと一致していることを確認し
 ```
 ExecStart=/usr/local/bin/k3s \
     server \
