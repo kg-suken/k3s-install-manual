@@ -157,18 +157,22 @@ helm repo add rancher-stable https://releases.rancher.com/server-charts/stable
 ```bash
 helm repo update
 ```
-### 3.名前空間を作成
+### 3.Cert-ManagerのCRDをインストールする
+```
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.0/cert-manager.crds.yaml
+```
+### 4.名前空間を作成
 ```
 kubectl create namespace cattle-system
 ```
-### 4.デプロイする
+### 5.デプロイする
 ```
 kubectl create namespace cattle-system
 helm install rancher rancher-stable/rancher \
   --namespace cattle-system \
   --set hostname=<RANCHER_HOSTNAME>
 ```
-### 4.RancherのWebUIにアクセス
+### 6.RancherのWebUIにアクセス
 アクセスしたいPCの`/etc/hosts`を編集する
 Winなら'C:\Windows\System32\drivers\etc\hosts'
 LinuxやMacなら`/etc/hosts`
@@ -176,7 +180,7 @@ LinuxやMacなら`/etc/hosts`
 <masterのIP(VPN越しではない)> rancher.local
 例:192.168.11.212 rancher.local
 ```
-### 5.初期パスワードを取得
+### 7.初期パスワードを取得
 ```bash
 kubectl get secret --namespace cattle-system bootstrap-secret -o go-template='{{.data.bootstrapPassword|base64decode}}{{"\n"}}'
 ```
