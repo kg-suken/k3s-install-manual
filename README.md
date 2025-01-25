@@ -116,9 +116,9 @@ curl -sfL https://get.k3s.io | K3S_URL=https://10.0.0.1:6443 K3S_TOKEN=<トー�
 
 ## 3.その他
 ### 1.Kubectlにworkerからもアクセスできるようにする
-Masterの`/etc/rancher/k3s/k3s.yaml`をWorkerの`~/.kube/config`にコピーしてk3s-agentを再起動する
-MasterNodeも同じようにやってください
-この時に`server: https://10.0.0.1:6443`のようにMasterのIP(VPN越し)に設定する
+Masterの`/etc/rancher/k3s/k3s.yaml`をWorkerの`~/.kube/config`にコピーしてk3s-agentを再起動する    
+MasterNodeも同じようにやってください    
+この時にWorkerのconfigは`server: https://10.0.0.1:6443`のようにMasterのIP(VPN越し)に設定する
 ```bash
 systemctl restart k3s #MasterNode
 ```
@@ -160,7 +160,7 @@ helm install rancher rancher-stable/rancher \
   --set hostname=rancher.local
 ```
 ### 6.RancherのWebUIにアクセス
-アクセスしたいPCの`/etc/hosts`を編集する
+アクセスしたいPCの`/etc/hosts`を編集する    
 Winなら'C:\Windows\System32\drivers\etc\hosts'
 LinuxやMacなら`/etc/hosts`
 ```
