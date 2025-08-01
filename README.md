@@ -5,6 +5,8 @@
 [RK3sでクラスターを作ってみよう](https://qiita.com/ogawa_pro/items/55a9dadad90d595a85a5)
 k8sについてよくわかる動画[挫折したエンジニア向け-Kubernetesの仕組みをちゃんと理解する](https://www.youtube.com/watch?v=r0NpHb-6IvY)
 
+[![](https://img.youtube.com/vi/8fFXmBuscak/0.jpg)](https://www.youtube.com/watch?v=8fFXmBuscak)
+
 OSはUbuntuServer24.04です。
 他のOSでもほとんど変わらないと思います。
 
